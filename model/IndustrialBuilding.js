@@ -1,12 +1,14 @@
 import Building from "./Building.js";
 
-export default class CommercialBuilding extends Building {
+export default class IndustrialBuilding extends Building {
 
-    constructor (id, constructionCost, maintenanceCost, electricityConsumption, waterConsumption, jobs) {
+    constructor (id, constructionCost, maintenanceCost, electricityConsumption, waterConsumption, jobs, production) {
         super(id, constructionCost, maintenanceCost, electricityConsumption, waterConsumption);
         this._jobs = jobs;
         this._workers = [];
+        this._production = production;
     }
+
     // ======= GETTERS =======
 
     get jobs () { 
@@ -17,6 +19,10 @@ export default class CommercialBuilding extends Building {
         return this._workers; 
     }
 
+    get production () { 
+        return this._production; 
+    }
+
     // ======= SETTERS =======
 
     set jobs (newJobs) { 
@@ -25,6 +31,10 @@ export default class CommercialBuilding extends Building {
 
     set workers (newWorkers) { 
         this._workers = newWorkers; 
+    }
+
+    set production (newProduction) { 
+        this._production = newProduction; 
     }
 
     // ======= METHODS =======
@@ -38,6 +48,10 @@ export default class CommercialBuilding extends Building {
     }
 
     hasJobVacancy () {
+
+    }
+
+    produceResources () {
 
     }
 

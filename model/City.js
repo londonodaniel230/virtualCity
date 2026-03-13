@@ -1,6 +1,6 @@
 export default class City {
 
-    constructor(id, name, mayor, region, latitude, longitude, mapWidth, mapHeight) {
+    constructor (id, name, mayor, region, latitude, longitude, mapWidth, mapHeight) {
         this._id = id;
         this._name = name;
         this._mayor = mayor;
