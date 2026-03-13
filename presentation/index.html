@@ -12,7 +12,7 @@
 
     <div class="container py-4">
         <div class="row justify-content-center">
-            <div class="col-lg-8">
+            <div class="col-12 col-xl-10">
 
                 <div id="setup-section" class="card shadow-sm mb-4">
                     <div class="card-header">
@@ -47,6 +47,10 @@
                                 </select>
                             </div>
 
+                            <div id="info-bar">
+                                 <span id="info-text">No cell selected</span>
+                            </div>
+
                             <div class="col-12">
                                 <button type="submit" class="btn btn-primary w-100">
                                     Create City
@@ -63,8 +67,10 @@
                         <h3 class="mb-0">City Map</h3>
                     </div>
 
-                    <div class="card-body">
-                        <div id="map-grid"></div>
+                    <div class="card-body map-wrapper">
+                        <div id="map-scroll-container"> 
+                            <div id="map-grid"></div>
+                        </div>
                     </div>
                 </div>
 
