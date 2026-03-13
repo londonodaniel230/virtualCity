@@ -4,7 +4,7 @@ export default class GridView {
         this._container = document.getElementById(containerId);
     }
 
-    render(grid) {
+    render(grid, onCellClick) {
         this._container.innerHTML = "";
         this._container.style.display = "grid";
         this._container.style.gridTemplateColumns = `repeat(${grid.width}, 30px)`;
@@ -19,8 +19,26 @@ export default class GridView {
                 cellElement.dataset.x = cell.x;
                 cellElement.dataset.y = cell.y;
 
+                cellElement.addEventListener("click", () => {
+                    onCellClick(cell.x, cell.y);
+                });
+
                 this._container.appendChild(cellElement);
             }
+        }
+    }
+
+    highlightSelectedCell(x, y) {
+        const previousSelected = this._container.querySelector(".selected-cell");
+
+        if (previousSelected) {
+            previousSelected.classList.remove("selected-cell");
+        }
+
+        const newSelected = this._container.querySelector(`[data-x="${x}"][data-y="${y}"]`);
+
+        if (newSelected) {
+            newSelected.classList.add("selected-cell");
         }
     }
 }

@@ -11,6 +11,7 @@ export default class GameController {
         this._mapSection = document.getElementById("map-section");
         this._gridView = new GridView("map-grid");
         this._city = null;
+        this._selectedCell = null;
     }
 
     init() {
@@ -41,15 +42,28 @@ export default class GameController {
             grid
         );
 
-        this.showCityInfo();
-        this._gridView.render(grid);
-        this._mapSection.classList.remove("d-none");
         this._setupSection.classList.add("d-none");
+        
+        this.showCityInfo();
+
+        this._gridView.render(grid, (x, y) => {
+            this.selectCell(x, y);
+        });
+
+        this._mapSection.classList.remove("d-none");
     }
 
     showCityInfo() {
         this._cityInfo.classList.remove("d-none");
         this._cityInfo.textContent =
             `City: ${this._city.name} | Mayor: ${this._city.mayor} | Region: ${this._city.region} | Size: ${this._city.mapWidth} x ${this._city.mapHeight}`;
+    }
+
+    selectCell(x, y) {
+        this._selectedCell = { x, y };
+
+        this._gridView.highlightSelectedCell(x, y);
+
+        console.log("Selected cell:", this._selectedCell);
     }
 }

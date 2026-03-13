@@ -16,3 +16,8 @@
 .map-cell:hover {
     background-color: #c8e6c9;
 }
+
+.selected-cell {
+    background-color: #90caf9;
+    border: 2px solid #1976d2;
+}
