@@ -7,9 +7,12 @@ export default class GameController {
     constructor() {
         this._form = document.getElementById("city-form");
         this._setupSection = document.getElementById("setup-section");
-        this._cityInfo = document.getElementById("city-info");
         this._mapSection = document.getElementById("map-section");
+        this._infoBar = document.getElementById("info-bar");
+        this._infoText = document.getElementById("info-text");
+        
         this._gridView = new GridView("map-grid");
+        
         this._city = null;
         this._selectedCell = null;
     }
@@ -51,12 +54,14 @@ export default class GameController {
         });
 
         this._mapSection.classList.remove("d-none");
+        this._infoBar.classList.remove("d-none");
+
+        this.showCityInfo();
     }
 
     showCityInfo() {
-        this._cityInfo.classList.remove("d-none");
-        this._cityInfo.textContent =
-            `City: ${this._city.name} | Mayor: ${this._city.mayor} | Region: ${this._city.region} | Size: ${this._city.mapWidth} x ${this._city.mapHeight}`;
+        this._infoText.textContent =
+        `City: ${this._city.name} | Mayor: ${this._city.mayor} | Region: ${this._city.region} | Size: ${this._city.mapWidth} x ${this._city.mapHeight}`;
     }
 
     selectCell(x, y) {

@@ -47,10 +47,6 @@
                                 </select>
                             </div>
 
-                            <div id="info-bar">
-                                 <span id="info-text">No cell selected</span>
-                            </div>
-
                             <div class="col-12">
                                 <button type="submit" class="btn btn-primary w-100">
                                     Create City
@@ -60,19 +56,17 @@
                     </div>
                 </div>
 
-                <div id="city-info" class="alert alert-info d-none"></div>
-
-                <div id="map-section" class="card shadow-sm d-none">
-                    <div class="card-header">
-                        <h3 class="mb-0">City Map</h3>
-                    </div>
-
-                    <div class="card-body map-wrapper">
-                        <div id="map-scroll-container"> 
+                <div id="map-section" class="d-none">
+                    <div class="map-wrapper">
+                        <div id="map-scroll-container">
                             <div id="map-grid"></div>
                         </div>
                     </div>
                 </div>
+
+<div id="info-bar" class="d-none">
+    <span id="info-text">City information</span>
+</div>
 
             </div>
         </div>
