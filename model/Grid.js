@@ -1,3 +1,5 @@
+import Cell from "./Cell.js";
+
 export default class Grid {
 
     constructor (width, height) {
@@ -37,11 +39,21 @@ export default class Grid {
     // ======= METHODS =======
 
     initializeGrid () {
+        this._cells = [];
 
+        for (let row = 0; row < this._height; row++) {
+            const currentRow = [];
+
+            for (let col = 0; col < this._width; col++) {
+                currentRow.push(new Cell(col, row));
+            }
+
+            this._cells.push(currentRow);
+        }
     }
 
     getCell (x, y) {
-
+        return this._cells[y][x];
     }
 
     placeBuilding (building, x, y) {

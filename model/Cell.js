@@ -36,11 +36,11 @@ export default class Cell {
     // ======= METHODS =======
 
     isEmpty () {
-
+        return this._content === null;
     }
 
     removeContent () {
-
+        this._content = null;
     }
 
 }

@@ -1,0 +1,18 @@
+#map-grid {
+    display: grid;
+    gap: 2px;
+    justify-content: start;
+}
+
+.map-cell {
+    width: 30px;
+    height: 30px;
+    border: 1px solid #c9ced3;
+    background-color: #e8f5e9;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.map-cell:hover {
+    background-color: #c8e6c9;
+}
