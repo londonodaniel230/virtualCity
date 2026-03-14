@@ -43,4 +43,7 @@ export default class Cell {
         this._content = null;
     }
 
+    setContent(content) {
+        this._content = content;
+    }
 }

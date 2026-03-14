@@ -53,6 +53,13 @@ export default class Grid {
     }
 
     getCell (x, y) {
+        if (
+            y < 0 || y >= this._height ||
+            x < 0 || x >= this._width
+        ) {
+            return null;
+        }
+
         return this._cells[y][x];
     }
 
@@ -61,7 +68,18 @@ export default class Grid {
     }
 
     placeRoad (road, x, y) {
+        const cell = this.getCell(x, y);
 
+        if (!cell) {
+            return false;
+        }
+
+        if (!cell.isEmpty()) {
+            return false;
+        }
+
+        cell.setContent(road);
+        return true;
     }
 
     removeContent (x, y) {

@@ -1,28 +1,28 @@
 export default class Road {
 
-    constructor (id, maintenanceCost) {
-        this._id = id;
-        this._maintenanceCost = maintenanceCost;
+    constructor() {
+        this._type = "road";
+        this._cost = 100;
     }
 
     // ======= GETTERS =======
 
-    get id () { 
-        return this._id; 
+    get type() {
+        return this._type;
     }
 
-    get maintenanceCost () { 
-        return this._maintenanceCost; 
+    get cost() {
+        return this._cost;
     }
 
     // ======= SETTERS =======
 
-    set id (newId) { 
-        this._id = newId; 
+    set type (newType) { 
+        this._type = newType; 
     }
 
-    set maintenanceCost (newMaintenanceCost) { 
-        this._maintenanceCost = newMaintenanceCost; 
+    set cost (newCost) { 
+        this._Cost = Cost; 
     }
     
 }

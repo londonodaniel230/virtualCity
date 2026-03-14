@@ -1,7 +1,9 @@
+import Grid from "../model/Grid.js";
+import Resources from "../business/Resources.js";
+
 export default class City {
 
-    constructor (id, name, mayor, region, latitude, longitude, mapWidth, mapHeight) {
-        this._id = id;
+    constructor (name, mayor, region, latitude, longitude, mapWidth, mapHeight, grid) {
         this._name = name;
         this._mayor = mayor;
         this._region = region;
@@ -11,13 +13,11 @@ export default class City {
         this._mapHeight = mapHeight;
         this._currentTurn = 0;
         this._score = 0;
+        this._grid = grid;
+        this._resources = new Resources(1000);
     }
 
     // ======= GETTERS =======
-
-    get id () {
-        return this._id;
-    }
 
     get name () {
         return this._name;
@@ -55,11 +55,15 @@ export default class City {
         return this._score; 
     }
 
-    // ======= SETTERS =======
-
-    set id (newId) {
-        this._id = newId;
+    get grid() {
+        return this._grid;
     }
+
+    get resources() {
+        return this._resources;
+    }
+
+    // ======= SETTERS =======
 
     set name (newName) {
         this._name = newName
@@ -95,6 +99,14 @@ export default class City {
 
     set score (newScore) {
         this._score = newScore;
+    }
+
+    set grid(newGrid) {
+        this._grid = newGrid;
+    }
+
+    set resources(newResources) {
+        this._resources = newResources;
     }
 
     // ======= METHODS =======
